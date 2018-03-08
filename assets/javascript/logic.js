@@ -2,7 +2,6 @@
 /////////////////////////////////////////////////////
 var gifCategoryArray = ["volleyball", "chess", "dogs", "javascript"];
 var baseURL = "https://api.giphy.com/v1/gifs/search?q=";
-var categoryValue;
 var apiKey = "&api_key=dc6zaTOxFJmzC";
 
 
@@ -48,12 +47,16 @@ $(document).on("click", ".categoryButton", function(){
         console.log(response);
         $(".gifContainer").html("");
         for (var j = 0; j < 10; j++) {
-            var gifImg = $("<img class='gifClick' alt=gifImg>");
+            var gifImg = $("<img class='gifClick' alt='gifImg'>");
+            var div = $("<div>");
             gifImg.attr("src", response.data[j].images.fixed_height_still.url);
             gifImg.attr("data-animate", response.data[j].images.fixed_height.url);
             gifImg.attr("data-still", response.data[j].images.fixed_height_still.url);
             gifImg.attr("data-state", "still");
-            $(".gifContainer").append(gifImg);
+            gifImg.attr("data-rating", response.data[j].rating);
+            div.html("<div>" + gifImg.attr('data-rating') + "</div>");
+            $(".gifContainer").append(div);
+            div.append(gifImg);
         }
       });
 });
