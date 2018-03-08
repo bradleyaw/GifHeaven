@@ -1,7 +1,7 @@
 // Global variables
 /////////////////////////////////////////////////////
 var gifCategoryArray = ["volleyball", "chess", "dogs", "javascript"];
-var baseURL = "http://api.giphy.com/v1/gifs/search?q=";
+var baseURL = "https://api.giphy.com/v1/gifs/search?q=";
 var categoryValue;
 var apiKey = "&api_key=dc6zaTOxFJmzC";
 
